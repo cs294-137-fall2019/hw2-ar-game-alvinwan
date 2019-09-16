@@ -32,6 +32,7 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
     void Start()
     {
         remainingDebounceTime = 0;
+        GetComponent<Renderer>().material.color = Color.gray;
 
     }
 
@@ -81,16 +82,7 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
 
     public void Reset()
     {
-        if (player == 0)
-        {
-            this.gameObject.transform.Translate(new Vector3(0, -0.2f, 0));
-
-        } else if (player == 1)
-        {
-            this.gameObject.transform.Translate(new Vector3(0, -0.1f, 0));
-        }
         player = -1;
-
-        GetComponent<Renderer>().material.color = color;
+        GetComponent<Renderer>().material.color = Color.gray;
     }
 }
