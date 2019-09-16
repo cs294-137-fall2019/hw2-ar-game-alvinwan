@@ -11,29 +11,35 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
     public GameManager gameManager;
     public int x;
     public int y;
+    public int id;
     private int player = -1;
 
     void Start()
     {
     }
 
+    public bool IsUnclaimed()
+    {
+        return player < 0;
+    }
+
     public void OnComputerTouch()
     {
         this.gameObject.transform.Translate(new Vector3(0, 0.2f, 0));
-        player = 1;
+        player = 0;
 
-        if (gameManager) gameManager.OnComputerMove(x, y);
+        if (gameManager) gameManager.OnMove(x, y, id, player);
     }
 
     public void OnTouch()
     {
-        if (player < 0)
+        if (IsUnclaimed())
         {
             // Move the object up by 10cm and reset the wait counter.
             this.gameObject.transform.Translate(new Vector3(0, 0.1f, 0));
-            player = 0;
+            player = 1;
 
-            if (gameManager) gameManager.OnMove(x, y, player);
+            if (gameManager) gameManager.OnMove(x, y, id, player);
         }
     }
 }

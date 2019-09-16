@@ -496,15 +496,15 @@ Transform:
   - {fileID: 165585584}
   - {fileID: 849104633}
   - {fileID: 128009067}
-  - {fileID: 478902245}
-  - {fileID: 355169935}
-  - {fileID: 1243344053}
-  - {fileID: 1081667320}
   - {fileID: 508040715}
   - {fileID: 560346595}
   - {fileID: 1640875092}
   - {fileID: 662457669}
+  - {fileID: 478902245}
   - {fileID: 955769059}
+  - {fileID: 355169935}
+  - {fileID: 1243344053}
+  - {fileID: 1081667320}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -881,7 +881,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 1.1, z: 0.3}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 5
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &355169936
 BoxCollider:
@@ -957,6 +957,7 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: -1
   y: -1
+  id: 7
 --- !u!1 &478902244
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +990,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 1.1, z: 0.3}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &478902246
 BoxCollider:
@@ -1065,6 +1066,7 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: 0
   y: 0
+  id: 5
 --- !u!1 &508040714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1099,7 @@ Transform:
   m_LocalScale: {x: 0.29999998, y: 1.1, z: 0.29999995}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &508040716
 BoxCollider:
@@ -1173,6 +1175,7 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: -1
   y: 1
+  id: 1
 --- !u!1 &524161042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1322,7 @@ Transform:
   m_LocalScale: {x: 0.29999998, y: 1.1, z: 0.29999995}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &560346596
 BoxCollider:
@@ -1395,6 +1398,7 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: 0
   y: 1
+  id: 2
 --- !u!1 &662457668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1431,7 @@ Transform:
   m_LocalScale: {x: 0.29999998, y: 1.1, z: 0.29999995}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &662457670
 BoxCollider:
@@ -1503,6 +1507,7 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: -1
   y: 0
+  id: 4
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,7 +1723,7 @@ Transform:
   m_LocalScale: {x: 0.29999998, y: 1.1, z: 0.29999995}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &955769060
 BoxCollider:
@@ -1794,6 +1799,7 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: 1
   y: 0
+  id: 6
 --- !u!1 &1081667319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +1832,7 @@ Transform:
   m_LocalScale: {x: 0.29999998, y: 1.1, z: 0.29999995}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 7
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1081667321
 BoxCollider:
@@ -1902,6 +1908,7 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: 1
   y: -1
+  id: 9
 --- !u!1 &1114040580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,7 +2020,7 @@ Transform:
   m_LocalScale: {x: 0.29999998, y: 1.1, z: 0.29999995}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1243344054
 BoxCollider:
@@ -2089,6 +2096,7 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: 0
   y: -1
+  id: 8
 --- !u!1 &1577749883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,7 +2262,7 @@ Transform:
   m_LocalScale: {x: 0.29999998, y: 1.1, z: 0.29999995}
   m_Children: []
   m_Father: {fileID: 187753679}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1640875093
 BoxCollider:
@@ -2330,3 +2338,4 @@ MonoBehaviour:
   gameManager: {fileID: 524161049}
   x: 1
   y: 1
+  id: 3
