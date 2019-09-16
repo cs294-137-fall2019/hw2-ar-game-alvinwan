@@ -26,6 +26,8 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
     // Stores a counter for the current remaining wait time.
     private float remainingDebounceTime;
 
+    private Color color;
+
 
     void Start()
     {
@@ -49,7 +51,8 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
 
     public void OnComputerTouch()
     {
-        this.gameObject.transform.Translate(new Vector3(0, 0.2f, 0));
+        color = GetComponent<Renderer>().material.color;
+        GetComponent<Renderer>().material.color = Color.red;
         player = 0;
 
         if (gameManager) gameManager.OnMove(x, y, id, player);
@@ -63,8 +66,8 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
 
             if (IsUnclaimed())
             {
-                // Move the object up by 10cm and reset the wait counter.
-                this.gameObject.transform.Translate(new Vector3(0, 0.1f, 0));
+                color = GetComponent<Renderer>().material.color;
+                GetComponent<Renderer>().material.color = Color.blue;
                 player = 1;
 
                 if (gameManager) gameManager.OnMove(x, y, id, player);
@@ -87,5 +90,7 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
             this.gameObject.transform.Translate(new Vector3(0, -0.1f, 0));
         }
         player = -1;
+
+        GetComponent<Renderer>().material.color = color;
     }
 }

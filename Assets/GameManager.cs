@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public Text status;
     private List<int> AllSquares = new List<int>();
     private List<int> PlayerSquares = new List<int>();
     private List<int> ComputerSquares = new List<int>();
@@ -107,15 +109,22 @@ public class GameManager : MonoBehaviour
         int winner = CheckWin();
         if (winner == 0)
         {
-            Debug.Log("Computer won!");
+            Log("Computer won!");
         } else if (winner > 0)
         {
-            Debug.Log("Player won!");
+            Log("Player won!");
         }
 
         if (CheckTie())
         {
-            Debug.Log("Game is TIED!");
+            Log("Game is TIED!");
         }
+    }
+
+    public void Log(string text)
+    {
+        status.text = text;
+        Debug.Log(text);
+        status.GetComponent<DisappearingText>().Reset();
     }
 }
