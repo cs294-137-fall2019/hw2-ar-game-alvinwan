@@ -24,7 +24,20 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        Reset();
+    }
+
+    public void Reset()
+    {
+        AllSquares = new List<int>();
+        PlayerSquares = new List<int>();
+        ComputerSquares = new List<int>();
+
+        var receivers = GameObject.FindGameObjectsWithTag("Receiver");
+        foreach (var receiver in receivers)
+        {
+            receiver.GetComponent<TicTacToeReceiver>().Reset();
+        }
     }
 
     public void MakeComputerMove()
@@ -59,7 +72,6 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    // check for win state
     public int CheckWin()
     {
         if (CheckWinFor(PlayerSquares))
@@ -74,7 +86,6 @@ public class GameManager : MonoBehaviour
         return -1;
     }
 
-    // check for tie
     public bool CheckTie()
     {
         return AllSquares.Count == 9;
@@ -82,13 +93,14 @@ public class GameManager : MonoBehaviour
 
     public void OnMove(int x, int y, int id, int player)
     {
-        if (player != 0)
+        if (player == 0)
+        {
+            ComputerSquares.Add(id);
+        }
+        else if (player > 0)
         {
             PlayerSquares.Add(id);
             MakeComputerMove();
-        } else
-        {
-            ComputerSquares.Add(id);
         }
         AllSquares.Add(id);
 
@@ -96,7 +108,7 @@ public class GameManager : MonoBehaviour
         if (winner == 0)
         {
             Debug.Log("Computer won!");
-        } else if (winner != 0)
+        } else if (winner > 0)
         {
             Debug.Log("Player won!");
         }

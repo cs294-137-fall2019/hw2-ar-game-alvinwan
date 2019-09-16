@@ -14,8 +14,32 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
     public int id;
     private int player = -1;
 
+    // Debouncing is a term from Electrical Engineering referring to 
+    // preventing multiple presses of a button due to the physical switch
+    // inside the button "bouncing".
+    // In CS we use it to mean any action to prevent repeated input. 
+    // Here we will simply wait a specified time before letting the button
+    // be pressed again.
+    // We set this to a public variable so you can easily adjust this in the
+    // Unity UI.
+    public float debounceTime = 0.3f;
+    // Stores a counter for the current remaining wait time.
+    private float remainingDebounceTime;
+
+
     void Start()
     {
+        remainingDebounceTime = 0;
+
+    }
+
+    void Update()
+    {
+        // Time.deltaTime stores the time since the last update.
+        // So all we need to do here is subtract this from the remaining
+        // time at each update.
+        if (remainingDebounceTime > 0)
+            remainingDebounceTime -= Time.deltaTime;
     }
 
     public bool IsUnclaimed()
@@ -33,13 +57,35 @@ public class TicTacToeReceiver : MonoBehaviour, OnTouch3D
 
     public void OnTouch()
     {
-        if (IsUnclaimed())
+        if (remainingDebounceTime <= 0)
         {
-            // Move the object up by 10cm and reset the wait counter.
-            this.gameObject.transform.Translate(new Vector3(0, 0.1f, 0));
-            player = 1;
+            remainingDebounceTime = debounceTime;
 
-            if (gameManager) gameManager.OnMove(x, y, id, player);
+            if (IsUnclaimed())
+            {
+                // Move the object up by 10cm and reset the wait counter.
+                this.gameObject.transform.Translate(new Vector3(0, 0.1f, 0));
+                player = 1;
+
+                if (gameManager) gameManager.OnMove(x, y, id, player);
+            }
+            else
+            {
+                Debug.Log("Move invalid!");
+            }
         }
+    }
+
+    public void Reset()
+    {
+        if (player == 0)
+        {
+            this.gameObject.transform.Translate(new Vector3(0, -0.2f, 0));
+
+        } else if (player == 1)
+        {
+            this.gameObject.transform.Translate(new Vector3(0, -0.1f, 0));
+        }
+        player = -1;
     }
 }
